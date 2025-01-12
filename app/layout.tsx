@@ -29,7 +29,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NavBar />
-        {children}
+        {/* we wrap the children in a main tag to make the layout more flexible, because we can add a header and a footer to the main tag */}
+        <main>{children}</main>
       </body>
     </html>
   );
