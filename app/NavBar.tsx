@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <nav className="flex">
       <Link href="/">Logo</Link>
-      <ul>
+      <ul className="flex gap-4">
         <li>
           <Link href="/">Dashboard</Link>
         </li>
