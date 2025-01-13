@@ -1,3 +1,4 @@
+"use client"; // we need to use client side navigation because we are using the usePathname hook, which is not available on the server side
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
