@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { AiFillBug } from "react-icons/ai";
 
 const NavBar = () => {
+  const currentPath = usePathname();
   // 定义导航链接数组，方便后续维护和扩展
   const links = [
     { label: "Dashboard", href: "/" }, // 仪表盘首页
