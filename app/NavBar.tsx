@@ -6,7 +6,6 @@ import { AiFillBug } from "react-icons/ai";
 
 const NavBar = () => {
   const currentPath = usePathname();
-  console.log(currentPath);
   // 定义导航链接数组，方便后续维护和扩展
   const links = [
     { label: "Dashboard", href: "/" }, // 仪表盘首页
@@ -25,7 +24,14 @@ const NavBar = () => {
           // 遍历 links 数组，动态渲染每个导航项
           <li key={link.href}>
             {/* 导航链接，点击跳转到对应页面 */}
-            <Link href={link.href}>{link.label}</Link>
+            <Link
+              href={link.href}
+              className={`${
+                currentPath === link.href ? "text-zinc-950" : "text-zinc-500"
+              } hover:text-zinc-800 transition-colors`}
+            >
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>
