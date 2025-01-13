@@ -3,9 +3,9 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <nav className="flex space-x-6">
+    <nav className="flex space-x-6 border-b">
       <Link href="/">Logo</Link>
-      <ul className="flex gap-4">
+      <ul className="flex space-x-6">
         <li>
           <Link href="/">Dashboard</Link>
         </li>
