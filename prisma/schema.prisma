@@ -15,6 +15,13 @@ datasource db {
 }
 
 model Issue {
-  id    Int    @id @default(autoincrement())
-  title String @db.VarChar(255)
+  id          Int    @id @default(autoincrement())
+  title       String @db.VarChar(255)
+  description String @db.Text
+}
+
+enum IssueStatus {
+  OPEN
+  IN_PROGRESS
+  CLOSED
 }
