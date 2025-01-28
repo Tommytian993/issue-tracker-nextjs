@@ -27,13 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Theme>
+      <Theme appearance="dark" accentColor="violet">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <NavBar />
           {/* we wrap the children in a main tag to make the layout more flexible, because we can add a header and a footer to the main tag */}
-          <main>{children}</main>
+          <main className="p-5">{children}</main>
         </body>
       </Theme>
     </html>
