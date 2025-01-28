@@ -4,7 +4,7 @@ import React from "react";
 
 const NewIssuePage = () => {
   return (
-    <div>
+    <div className="max-w-xl">
       <TextField.Root>
         <TextField.Input placeholder="Title" />
       </TextField.Root>
