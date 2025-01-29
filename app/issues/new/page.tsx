@@ -12,10 +12,13 @@ interface IssueForm {
 }
 
 const NewIssuePage = () => {
-  const { register, control } = useForm<IssueForm>();
+  const { register, control, handleSubmit } = useForm<IssueForm>();
 
   return (
-    <div className="max-w-xl space-y-3">
+    <form
+      onSubmit={handleSubmit((data) => console.log(data))}
+      className="max-w-xl space-y-3"
+    >
       <TextField.Root>
         <TextField.Root placeholder="Title" {...register("title")} />
       </TextField.Root>
@@ -27,7 +30,7 @@ const NewIssuePage = () => {
         )}
       />
       <Button>Submit New Issue</Button>
-    </div>
+    </form>
   );
 };
 
