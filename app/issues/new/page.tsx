@@ -19,7 +19,7 @@ const NewIssuePage = () => {
   const [error, setError] = useState(false);
 
   return (
-    <div>
+    <div className="max-w-xl">
       {error && <Callout.Root color="red">{error}</Callout.Root>}
       <form
         onSubmit={handleSubmit(async (data) => {
@@ -30,7 +30,7 @@ const NewIssuePage = () => {
             setError("error message");
           }
         })}
-        className="max-w-xl space-y-3"
+        className=" space-y-3"
       >
         <TextField.Root>
           <TextField.Root placeholder="Title" {...register("title")} />
