@@ -4,6 +4,8 @@ import { Button, TextField } from "@radix-ui/themes";
 import React from "react";
 import SimpleMdeReact from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 // this is the type of the form data
 interface IssueForm {
@@ -12,11 +14,15 @@ interface IssueForm {
 }
 
 const NewIssuePage = () => {
+  const router = useRouter();
   const { register, control, handleSubmit } = useForm<IssueForm>();
 
   return (
     <form
-      onSubmit={handleSubmit((data) => console.log(data))}
+      onSubmit={handleSubmit(async (data) => {
+        await axios.post("/api/issues", data);
+        router.push("/issues");
+      })}
       className="max-w-xl space-y-3"
     >
       <TextField.Root>
