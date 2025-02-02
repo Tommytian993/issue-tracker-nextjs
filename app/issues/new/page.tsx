@@ -1,11 +1,13 @@
 "use client";
 import { useForm, Controller } from "react-hook-form";
 import { Button, Callout, TextField } from "@radix-ui/themes";
-import React from "react";
+import React, { useState } from "react";
 import SimpleMdeReact from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { createIssueSchema } from "@/app/validationSchemas";
 
 // this is the type of the form data
 interface IssueForm {
@@ -15,7 +17,9 @@ interface IssueForm {
 
 const NewIssuePage = () => {
   const router = useRouter();
-  const { register, control, handleSubmit } = useForm<IssueForm>();
+  const { register, control, handleSubmit } = useForm<IssueForm>({
+    resolver: zodResolver(createIssueSchema),
+  });
   const [error, setError] = useState(false);
 
   return (
