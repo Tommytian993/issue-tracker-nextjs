@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createIssueSchema } from "@/app/validationSchemas";
 import z from "zod";
+import ErrorMessage from "@/app/components/ErrorMessage";
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
@@ -41,11 +42,7 @@ const NewIssuePage = () => {
         <TextField.Root>
           <TextField.Root placeholder="Title" {...register("title")} />
         </TextField.Root>
-        {errors.title && (
-          <Text color="red" as="p">
-            {errors.title.message}
-          </Text>
-        )}
+        {errors.title && <ErrorMessage error={errors.title.message} />}
         <Controller
           control={control}
           name="description"
@@ -54,9 +51,7 @@ const NewIssuePage = () => {
           )}
         />
         {errors.description && (
-          <Text color="red" as="p">
-            {errors.description.message}
-          </Text>
+          <ErrorMessage error={errors.description.message} />
         )}
         <Button>Submit New Issue</Button>
       </form>
