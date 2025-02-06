@@ -25,6 +25,7 @@ const NewIssuePage = () => {
     resolver: zodResolver(createIssueSchema),
   });
   const [error, setError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
     <div className="max-w-xl">
@@ -32,9 +33,11 @@ const NewIssuePage = () => {
       <form
         onSubmit={handleSubmit(async (data) => {
           try {
+            setIsSubmitting(true);
             await axios.post("/api/issues", data);
             router.push("/issues");
           } catch (error) {
+            setIsSubmitting(false);
             setError("error message");
           }
         })}
@@ -54,9 +57,9 @@ const NewIssuePage = () => {
         {errors.description && (
           <ErrorMessage error={errors.description.message} />
         )}
-        <Button>
+        <Button disabled={isSubmitting}>
           Submit New Issue
-          <Spinner />
+          {isSubmitting && <Spinner />}
         </Button>
       </form>
     </div>
