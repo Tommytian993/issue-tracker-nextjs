@@ -1,3 +1,13 @@
+# Issue Tracker
+
+This site is a full-stack issue tracker application build via Next.js, Prisma ORM, MySQL, Radix UI, Zod validation and markdown editor integration. 
+
+- Create, manage and view issues,
+- Rich markdown editing for issue descriptions,
+- Form validation vai Zod and react-hook-form,
+- Modern UI with Radix UI and Tailwind CSS,
+- MySQL Database with Prisma Layer and Schema,
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
